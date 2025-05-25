@@ -1,0 +1,6 @@
+framework module CreateCustomerSDK {
+  umbrella header "CreateCustomerSDK.h"
+  export *
+
+  module * { export * }
+}
