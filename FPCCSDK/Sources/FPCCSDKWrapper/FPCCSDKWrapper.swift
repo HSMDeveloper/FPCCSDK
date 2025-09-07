@@ -7,4 +7,4 @@
 
 
 @_exported import CreateCustomerSDK
-@_exported import FPKYCSDK
+@_exported import FPKYC

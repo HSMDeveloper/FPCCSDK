@@ -14,16 +14,13 @@ let package = Package(
         ),
     ],
     dependencies: [
-        
         .package(url: "https://github.com/HSMDeveloper/FPKYCSDK.git", branch: "main")
     ],
     targets: [
-        
         .binaryTarget(
             name: "CreateCustomerSDK",
             path: "./Sources/FPCC.xcframework"
         ),
-        
         .target(
             name: "FPCCSDKWrapper",
             dependencies: [
