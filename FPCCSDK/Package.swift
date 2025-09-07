@@ -18,7 +18,7 @@ let package = Package(
     ],
     targets: [
         .binaryTarget(
-            name: "CreateCustomerSDK",
+            name: "FPCC",
             path: "./Sources/FPCC.xcframework"
         ),
         .target(
