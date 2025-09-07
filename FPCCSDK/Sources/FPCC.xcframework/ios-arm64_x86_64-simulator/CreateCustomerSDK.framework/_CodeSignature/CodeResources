@@ -10,11 +10,11 @@
 		</data>
 		<key>Modules/CreateCustomerSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		r4q3cWaLYPvGpZ32vGBWM7VMZTc=
+		q7PKfqJ4bs7tpySnRHnBtbBZMZk=
 		</data>
 		<key>Modules/CreateCustomerSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		d+7cQtf2w7zSCtQJi+kRUzws5aQ=
+		h8B1uagRrMzJEC6Jpvz5RlXW4T8=
 		</data>
 		<key>Modules/CreateCustomerSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -22,19 +22,19 @@
 		</data>
 		<key>Modules/CreateCustomerSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		d+7cQtf2w7zSCtQJi+kRUzws5aQ=
+		h8B1uagRrMzJEC6Jpvz5RlXW4T8=
 		</data>
 		<key>Modules/CreateCustomerSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		0ilbq3ykiJES98qMqxDDFDuP9xo=
+		DRwXoh0UUIRirP75UQHPDueiSwE=
 		</data>
 		<key>Modules/CreateCustomerSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		r4q3cWaLYPvGpZ32vGBWM7VMZTc=
+		q7PKfqJ4bs7tpySnRHnBtbBZMZk=
 		</data>
 		<key>Modules/CreateCustomerSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		e81Zo3VtzxUO5k1P2/X7Q3OXlT0=
+		NZylSxWtxk8X5y4499xFkwvgnIc=
 		</data>
 		<key>Modules/CreateCustomerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -42,11 +42,11 @@
 		</data>
 		<key>Modules/CreateCustomerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		e81Zo3VtzxUO5k1P2/X7Q3OXlT0=
+		NZylSxWtxk8X5y4499xFkwvgnIc=
 		</data>
 		<key>Modules/CreateCustomerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		trRZFGu3JyLRsO/LMy0/NGIXZZE=
+		vR43jHIuq9ABhUGb8qym/9nRXDE=
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
@@ -59,14 +59,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/0OqHLtQ1AaPKpXBf3OFwJxhjYa9vgs8up+rdnb/BxA=
+			nUOg/7Z9SEOCo0iN9bx2eRqKYm/ya30qgq1N+gDJUG8=
 			</data>
 		</dict>
 		<key>Modules/CreateCustomerSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sedSqTVHd6XJ7eLG81V7eRQdw8GYzdPUMFvu7PKez7E=
+			3Eqk+G9LbH0MUM2xHfKgRLb4jWJSAM8yurv6Es0BYak=
 			</data>
 		</dict>
 		<key>Modules/CreateCustomerSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -80,28 +80,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			sedSqTVHd6XJ7eLG81V7eRQdw8GYzdPUMFvu7PKez7E=
+			3Eqk+G9LbH0MUM2xHfKgRLb4jWJSAM8yurv6Es0BYak=
 			</data>
 		</dict>
 		<key>Modules/CreateCustomerSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Pzuj4IAyX9WtxxTbZy/omvoYi/T10mJTrQuh1bMl1R8=
+			1ucvsUZjaaLWLEzEWPeTkwr8L8on2pEFGFu2YFiNtXE=
 			</data>
 		</dict>
 		<key>Modules/CreateCustomerSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/0OqHLtQ1AaPKpXBf3OFwJxhjYa9vgs8up+rdnb/BxA=
+			nUOg/7Z9SEOCo0iN9bx2eRqKYm/ya30qgq1N+gDJUG8=
 			</data>
 		</dict>
 		<key>Modules/CreateCustomerSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			w9qkZ2/6FH5TCIJ7IjsK7ZjBZpgsd7//myr97w1lvxI=
+			j1sSd8CMi223/XJ36U0G9wZzJkiNgd3b0UuaEin1QIo=
 			</data>
 		</dict>
 		<key>Modules/CreateCustomerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -115,14 +115,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			w9qkZ2/6FH5TCIJ7IjsK7ZjBZpgsd7//myr97w1lvxI=
+			j1sSd8CMi223/XJ36U0G9wZzJkiNgd3b0UuaEin1QIo=
 			</data>
 		</dict>
 		<key>Modules/CreateCustomerSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9jQFHMQu4ihhRV4iJ8oEFcvONodO6RdWE1cPJUTvNCU=
+			2bQg73Rs/+VDR+4uiTBmjfzxRQLjxc2AgJ7bbooJPec=
 			</data>
 		</dict>
 		<key>PrivacyInfo.xcprivacy</key>
