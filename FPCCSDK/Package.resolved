@@ -1,5 +1,4 @@
 {
-  "originHash" : "222e5f33338aaa772aa76e7aa6e31867ee79b51a3fbeb4ee49b983a8a79a5f0b",
   "pins" : [
     {
       "identity" : "fpkycsdk",
@@ -11,5 +10,5 @@
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }
