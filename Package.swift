@@ -16,13 +16,13 @@ let package = Package(
     ],
     dependencies: [
         // Add the FPKYCSDK dependency from the provided GitHub repository.
-        .package(url: "https://github.com/HSMDeveloper/FPKYCSDK.git", from: "1.0.0")
+        .package(url: "https://github.com/HSMDeveloper/FPKYCSDK.git", from: "1.11.0")
     ],
     targets: [
         // Binary target for your pre-built CreateCustomerSDK framework.
         .binaryTarget(
             name: "CreateCustomerSDK",
-            path: "Frameworks/CreateCustomerSDK.xcframework"
+            path: ".source/FPCC.xcframework"
         ),
         // A Swift source target that wraps the binary framework and re-exports FPKYCSDK.
         .target(
