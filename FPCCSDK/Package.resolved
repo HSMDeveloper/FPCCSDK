@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "fpkycsdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/HSMDeveloper/FPKYCSDK.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c942bd5ad8dd6851d1ccca522fee221a2917886e"
+      }
+    }
+  ],
+  "version" : 2
+}
