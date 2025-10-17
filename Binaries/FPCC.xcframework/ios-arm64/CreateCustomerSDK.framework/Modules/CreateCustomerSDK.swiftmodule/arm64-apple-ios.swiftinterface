@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
 // swift-module-flags: -target arm64-apple-ios18.5 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name CreateCustomerSDK
-// swift-module-flags-ignorable:  -interface-compiler-version 6.1.2
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
 import Combine
 import Foundation
 import Security
@@ -10,125 +10,67 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-public struct FPStartCreateCustomerProcessStartrRequestBodyParams : Swift.Codable {
-  public var parameters: [CreateCustomerSDK.FPDigitalBankingRequestParameter]?
-  public var taskId: Swift.String?
-  public init(parameters: [CreateCustomerSDK.FPDigitalBankingRequestParameter]? = nil, taskId: Swift.String? = nil)
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct FPDigitalBankingRequestParameter : Swift.Codable {
-  public var parameterId: Swift.String
-  public var parameterValue: CreateCustomerSDK.FPDigitalBankingParameterValue
-  public init(parameterId: Swift.String, parameterValue: CreateCustomerSDK.FPDigitalBankingParameterValue)
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-@_hasMissingDesignatedInitializers public class CustomerApprovedInfoValidationCheckViewModel {
-  public var cif: Swift.String? {
+public enum FPUserKeychainDefaultKeys : Swift.String {
+  case token
+  case mobileNumber
+  case firstName
+  case lastName
+  case profileLevelsCompleted
+  case profilePictureMediaUniqueId
+  case userSequence
+  case mobileBankUsername
+  case mobileBankPass
+  case cif
+  case clientId
+  case certificate
+  case customerNumber
+  case bankToken
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
     get
   }
-  public var customerAccountCreatingStatus: Swift.String {
-    get
-  }
+}
+@objc @_inheritsConvenienceInitializers public class KeychainHelper : ObjectiveC.NSObject {
+  @objc override dynamic public init()
   @objc deinit
 }
-@_hasMissingDesignatedInitializers public class PerformTaskViewModel {
-  public var nextTaskGroupedParameters: [CreateCustomerSDK.FPDigitalBankingFormGroupViewModel] {
+open class KeychainSwift {
+  open var lastResultCode: Darwin.OSStatus
+  open var accessGroup: Swift.String?
+  open var synchronizable: Swift.Bool
+  public init()
+  public init(keyPrefix: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @discardableResult
+  open func set(_ value: Swift.String, forKey key: Swift.String, withAccess access: CreateCustomerSDK.KeychainSwiftAccessOptions? = nil) -> Swift.Bool
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @discardableResult
+  open func set(_ value: Foundation.Data, forKey key: Swift.String, withAccess access: CreateCustomerSDK.KeychainSwiftAccessOptions? = nil) -> Swift.Bool
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @discardableResult
+  open func set(_ value: Swift.Bool, forKey key: Swift.String, withAccess access: CreateCustomerSDK.KeychainSwiftAccessOptions? = nil) -> Swift.Bool
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func get(_ key: Swift.String) -> Swift.String?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func getData(_ key: Swift.String, asReference: Swift.Bool = false) -> Foundation.Data?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func getBool(_ key: Swift.String) -> Swift.Bool?
+  #endif
+  @discardableResult
+  open func delete(_ key: Swift.String) -> Swift.Bool
+  public var allKeys: [Swift.String] {
     get
   }
-  public var processBean: CreateCustomerSDK.ProcessViewModel? {
-    get
-  }
-  public var nextTaskId: Swift.String? {
-    get
-  }
-  public var nextTaskTitle: Swift.String? {
-    get
-  }
-  public var exceptionBean: CreateCustomerSDK.ExceptionBeanViewModel? {
-    get
-  }
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class CardCommissionViewModel {
-  public var address: Swift.String? {
-    get
-  }
-  public var amount: Swift.Int? {
-    get
-  }
-  public var customerNumber: Swift.String? {
-    get
-  }
-  public var depositNumber: Swift.String? {
-    get
-  }
-  public var refNo: Swift.String? {
-    get
-  }
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class GuideViewModel {
-  public var body: Swift.String? {
-    get
-  }
-  public var uniqueId: Swift.String? {
-    get
-  }
-  public var url: Swift.String? {
-    get
-  }
-  @objc deinit
-}
-public struct PerformTaskZoomIdExtraData : Swift.Codable {
-  public var cms: Swift.String?
-  public init(cms: Swift.String? = nil)
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-@_hasMissingDesignatedInitializers public class ActiveOpenAcountViewModel {
-  public var customerAccountCreatingStatus: Swift.String {
-    get
-  }
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class GetPostalCodeViewModel {
-  public var address: Swift.String? {
-    get
-  }
-  public var city: Swift.String? {
-    get
-  }
-  public var state: Swift.String? {
-    get
-  }
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers final public class Utils {
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers final public class FPCreateCustomerViewModel : Foundation.ObservableObject {
-  public static var shared: CreateCustomerSDK.FPCreateCustomerViewModel
-  final public func createCustomerPreStartParameters(additionalInfoDto: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, processEnum: CreateCustomerSDK.FPDigitalBankingProcessEnum, completion: @escaping (Swift.Result<CreateCustomerSDK.CreateCustomerPreStartParametersViewModel, any Swift.Error>) -> Swift.Void)
-  final public func newCustomerMobileSignUp(mobileNo: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.NewCustomerMobileSignUpViewModel, any Swift.Error>) -> Swift.Void)
-  final public func newCustomerMobileVerify(code: Swift.String, deviceId: Swift.String, deviceInfo: Swift.String, mobileNo: Swift.String, platform: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.NewCustomerMobileVerifyViewModel, any Swift.Error>) -> Swift.Void)
-  final public func startCreateCustomerProcessStart(additionalInfoDto: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, processEnum: CreateCustomerSDK.FPDigitalBankingProcessEnum, requestBody: CreateCustomerSDK.FPStartCreateCustomerProcessStartrRequestBodyParams, completion: @escaping (Swift.Result<CreateCustomerSDK.StartCreateCustomerProcessViewModel, any Swift.Error>) -> Swift.Void)
-  final public func customerApprovedInfoSave(additionalInfo: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, customerNumber: Swift.String, depositNumber: Swift.String, processType: CreateCustomerSDK.FPDigitalBankingProcessEnum, referenceNumber: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.CustomerApprovedInfoViewModel, any Swift.Error>) -> Swift.Void)
-  final public func getBasicInfo(additionalInfoDto: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, processEnum: CreateCustomerSDK.FPDigitalBankingProcessEnum, completion: @escaping (Swift.Result<CreateCustomerSDK.GetBasicInfoViewModel, any Swift.Error>) -> Swift.Void)
-  final public func performTask(additionalInfoDto: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, token: Swift.String, requestBody: CreateCustomerSDK.FPStartCreateCustomerProcessStartrRequestBodyParams, zoomIdExtraDataRequest: CreateCustomerSDK.PerformTaskZoomIdExtraData, completion: @escaping (Swift.Result<CreateCustomerSDK.PerformTaskViewModel, any Swift.Error>) -> Swift.Void)
-  final public func startOpenDepositProcess(additionalInfoDto: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, processEnum: CreateCustomerSDK.FPDigitalBankingProcessEnum, completion: @escaping (Swift.Result<CreateCustomerSDK.StartOpenDepositProcessViewModel, any Swift.Error>) -> Swift.Void)
-  final public func customerApprovedInfoValidationCheck(nationalCode: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.CustomerApprovedInfoValidationCheckViewModel, any Swift.Error>) -> Swift.Void)
-  final public func guideApiCall(completion: @escaping (Swift.Result<CreateCustomerSDK.GuideViewModel, any Swift.Error>) -> Swift.Void)
-  final public func activeOpenAcount(completion: @escaping (Swift.Result<CreateCustomerSDK.ActiveOpenAcountViewModel, any Swift.Error>) -> Swift.Void)
-  final public func getCities(stateId: Swift.Int, completion: @escaping (Swift.Result<[CreateCustomerSDK.GetCitiesViewModel], any Swift.Error>) -> Swift.Void)
-  final public func getStates(completion: @escaping (Swift.Result<[CreateCustomerSDK.GetStatesViewModel], any Swift.Error>) -> Swift.Void)
-  final public func checkPayment(completion: @escaping (Swift.Result<CreateCustomerSDK.CheckPaymentViewModel, any Swift.Error>) -> Swift.Void)
-  final public func getUserAddresses(additionalInfoDto: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, cif: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.GetUserAddressesViewModel, any Swift.Error>) -> Swift.Void)
-  final public func getPostalCode(postalCode: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.GetPostalCodeViewModel, any Swift.Error>) -> Swift.Void)
-  final public func cardCommission(address: Swift.String, amount: Swift.Int64, cardPan: Swift.String, cif: Swift.String, cvv2: Swift.String, depositId: Swift.String, description: Swift.String, expDate: Swift.String, pin: Swift.String, postalCode: Swift.String, requestSeq: Swift.Int, additionalInfoDto: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, completion: @escaping (Swift.Result<CreateCustomerSDK.CardCommissionViewModel, any Swift.Error>) -> Swift.Void)
-  final public func commissionOTP(amount: Swift.String, cardUniqueId: Swift.String, transactionType: Swift.String, billType: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.CommissionOTPViewModel, any Swift.Error>) -> Swift.Void)
-  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @discardableResult
+  open func clear() -> Swift.Bool
   @objc deinit
 }
 public enum KeychainSwiftAccessOptions {
@@ -142,131 +84,6 @@ public enum KeychainSwiftAccessOptions {
   public var hashValue: Swift.Int {
     get
   }
-}
-@_hasMissingDesignatedInitializers public class CommissionOTPViewModel {
-  public var sent: Swift.Bool {
-    get
-  }
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class NewCustomerMobileVerifyViewModel {
-  public var token: Swift.String {
-    get
-  }
-  @objc deinit
-}
-public enum FPDigitalBankingExceptionType : Swift.String {
-  case customerIsAlreadyExisted
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
-open class KeychainSwift {
-  open var lastResultCode: Darwin.OSStatus
-  open var accessGroup: Swift.String?
-  open var synchronizable: Swift.Bool
-  public init()
-  public init(keyPrefix: Swift.String)
-  @discardableResult
-  open func set(_ value: Swift.String, forKey key: Swift.String, withAccess access: CreateCustomerSDK.KeychainSwiftAccessOptions? = nil) -> Swift.Bool
-  @discardableResult
-  open func set(_ value: Foundation.Data, forKey key: Swift.String, withAccess access: CreateCustomerSDK.KeychainSwiftAccessOptions? = nil) -> Swift.Bool
-  @discardableResult
-  open func set(_ value: Swift.Bool, forKey key: Swift.String, withAccess access: CreateCustomerSDK.KeychainSwiftAccessOptions? = nil) -> Swift.Bool
-  open func get(_ key: Swift.String) -> Swift.String?
-  open func getData(_ key: Swift.String, asReference: Swift.Bool = false) -> Foundation.Data?
-  open func getBool(_ key: Swift.String) -> Swift.Bool?
-  @discardableResult
-  open func delete(_ key: Swift.String) -> Swift.Bool
-  public var allKeys: [Swift.String] {
-    get
-  }
-  @discardableResult
-  open func clear() -> Swift.Bool
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class CreateCustomerPreStartParametersViewModel {
-  public var groupedParameters: [CreateCustomerSDK.FPDigitalBankingFormGroupViewModel] {
-    get
-  }
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class FPDigitalBankingFormGroupViewModel {
-  public var parameters: [CreateCustomerSDK.FPDigitalBankingFormGroupParameterViewModel] {
-    get
-  }
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class FPDigitalBankingFormGroupParameterViewModel {
-  public var id: Swift.String {
-    get
-  }
-  public var title: Swift.String? {
-    get
-  }
-  public var required: Swift.Bool? {
-    get
-  }
-  public var type: CreateCustomerSDK.FPDigitalBankingFormGroupParameterType? {
-    get
-  }
-  public var value: CreateCustomerSDK.ValueViewModel {
-    get
-  }
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class ValueViewModel : Foundation.ObservableObject {
-  public var values: [Swift.String]? {
-    get
-  }
-  public var enumDefinitionValue: [CreateCustomerSDK.EnumDefinitionValueViewModel] {
-    get
-  }
-  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class EnumDefinitionValueViewModel : Foundation.ObservableObject {
-  public var name: Swift.String? {
-    get
-  }
-  public var value: Swift.String? {
-    get
-  }
-  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class GetUserAddressesViewModel {
-  public var addressType: Swift.String? {
-    get
-  }
-  public var email: Swift.String? {
-    get
-  }
-  public var faxNumber: Swift.String? {
-    get
-  }
-  public var phoneNumber: Swift.String? {
-    get
-  }
-  public var postalAddress: Swift.String? {
-    get
-  }
-  public var postalCode: Swift.String? {
-    get
-  }
-  @objc deinit
-}
-public struct FPDigitalBankingAdditionalInfo : Swift.Codable {
-  public static var phoneNumber: Swift.String
-  public let deviceType: Swift.String
-  public let mobileNumber: Swift.String
-  public let platform: Swift.String
-  public let sourceVersion: Swift.String
-  public init?(deviceType: Swift.String? = nil, mobileNumber: Swift.String? = nil, platform: Swift.String? = nil, sourceVersion: Swift.String? = nil)
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
 }
 public struct KeychainSwiftConstants {
   public static var accessGroup: Swift.String {
@@ -303,38 +120,96 @@ public struct KeychainSwiftConstants {
     get
   }
 }
-@_hasMissingDesignatedInitializers public class GetCitiesViewModel {
-  public var id: Swift.Int {
-    get
-  }
-  public var name: Swift.String {
-    get
-  }
-  public var stateId: Swift.Int {
-    get
-  }
+@_hasMissingDesignatedInitializers final public class Utils {
   @objc deinit
 }
-@_hasMissingDesignatedInitializers public class StartOpenDepositProcessViewModel {
-  public var nextTaskGroupParameters: [CreateCustomerSDK.FPDigitalBankingFormGroupViewModel] {
+public struct FPDigitalBankingAdditionalInfo : Swift.Codable {
+  public static var phoneNumber: Swift.String
+  public let deviceType: Swift.String
+  public let mobileNumber: Swift.String
+  public let platform: Swift.String
+  public let sourceVersion: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(deviceType: Swift.String? = nil, mobileNumber: Swift.String? = nil, platform: Swift.String? = nil, sourceVersion: Swift.String? = nil)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum FPDigitalBankingProcessEnum : Swift.String, Swift.Codable {
+  case basicInfo
+  case createCustomer
+  case openDeposit
+  case getCard
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
     get
   }
-  public var process: CreateCustomerSDK.ProcessViewModel? {
+}
+public struct FPStartCreateCustomerProcessStartrRequestBodyParams : Swift.Codable {
+  public var parameters: [CreateCustomerSDK.FPDigitalBankingRequestParameter]?
+  public var taskId: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(parameters: [CreateCustomerSDK.FPDigitalBankingRequestParameter]? = nil, taskId: Swift.String? = nil)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct FPDigitalBankingRequestParameter : Swift.Codable {
+  public var parameterId: Swift.String
+  public var parameterValue: CreateCustomerSDK.FPDigitalBankingParameterValue
+  public init(parameterId: Swift.String, parameterValue: CreateCustomerSDK.FPDigitalBankingParameterValue)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum FPDigitalBankingFormGroupParameterType : Swift.String, Swift.Codable {
+  case constant
+  case input
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
     get
   }
-  public var nextTaskId: Swift.String? {
+}
+public struct FPDigitalBankingParameterValue : Swift.Codable {
+  public let values: [Swift.String]?
+  public var enumDefinitionValue: [CreateCustomerSDK.FPDigitalBankingParameterValueEnumDefinition]?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(values: [Swift.String]?, enumDefinitionValue: [CreateCustomerSDK.FPDigitalBankingParameterValueEnumDefinition]? = nil)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct FPDigitalBankingParameterValueEnumDefinition : Swift.Codable {
+  public let name: Swift.String?
+  public let value: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(name: Swift.String?, value: Swift.String?)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PerformTaskZoomIdExtraData : Swift.Codable {
+  public var cms: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(cms: Swift.String? = nil)
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum FPDigitalBankingExceptionType : Swift.String {
+  case customerIsAlreadyExisted
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
     get
   }
-  public var nextTaskTitle: Swift.String? {
-    get
-  }
-  public var exceptionBean: CreateCustomerSDK.ExceptionBeanViewModel? {
-    get
-  }
-  public var zoomIdLicense: CreateCustomerSDK.ZoomIdLicenseViewModel? {
-    get
-  }
-  @objc deinit
 }
 public enum NetworkError : Swift.Error {
   case invalidURL
@@ -345,65 +220,195 @@ public enum NetworkError : Swift.Error {
   case serverError(statusCode: Swift.Int)
   case unknownError
 }
-@_hasMissingDesignatedInitializers public class CustomerApprovedInfoViewModel {
+@_hasMissingDesignatedInitializers final public class Headers {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ActiveOpenAcountViewModel {
+  public var customerAccountCreatingStatus: Swift.String {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class CardCommissionViewModel {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var address: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var amount: Swift.Int? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var customerNumber: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var depositNumber: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var refNo: Swift.String? {
+    get
+  }
+  #endif
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class CheckPaymentViewModel {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var commissionAmount: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var isCommissionActive: Swift.Bool? {
     get
   }
+  #endif
   @objc deinit
 }
-@_hasMissingDesignatedInitializers public class NewCustomerMobileSignUpViewModel {
-  @objc deinit
-}
-public enum FPDigitalBankingFormGroupParameterType : Swift.String, Swift.Codable {
-  case constant
-  case input
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
-public struct FPDigitalBankingParameterValue : Swift.Codable {
-  public let values: [Swift.String]?
-  public var enumDefinitionValue: [CreateCustomerSDK.FPDigitalBankingParameterValueEnumDefinition]?
-  public init(values: [Swift.String]?, enumDefinitionValue: [CreateCustomerSDK.FPDigitalBankingParameterValueEnumDefinition]? = nil)
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public struct FPDigitalBankingParameterValueEnumDefinition : Swift.Codable {
-  public let name: Swift.String?
-  public let value: Swift.String?
-  public init(name: Swift.String?, value: Swift.String?)
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-@_hasMissingDesignatedInitializers public class GetStatesViewModel {
-  public var id: Swift.Int {
-    get
-  }
-  public var name: Swift.String {
+@_hasMissingDesignatedInitializers public class CommissionOTPViewModel {
+  public var sent: Swift.Bool {
     get
   }
   @objc deinit
 }
-public enum FPDigitalBankingProcessEnum : Swift.String, Swift.Codable {
-  case basicInfo
-  case createCustomer
-  case openDeposit
-  case getCard
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
+@_hasMissingDesignatedInitializers public class CreateCustomerPreStartParametersViewModel {
+  public var groupedParameters: [CreateCustomerSDK.FPDigitalBankingFormGroupViewModel] {
     get
   }
+  @objc deinit
 }
-@_hasMissingDesignatedInitializers final public class Headers {
+@_hasMissingDesignatedInitializers public class FPDigitalBankingFormGroupViewModel {
+  public var parameters: [CreateCustomerSDK.FPDigitalBankingFormGroupParameterViewModel] {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class FPDigitalBankingFormGroupParameterViewModel {
+  public var id: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var title: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var required: Swift.Bool? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var type: CreateCustomerSDK.FPDigitalBankingFormGroupParameterType? {
+    get
+  }
+  #endif
+  public var value: CreateCustomerSDK.ValueViewModel {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ValueViewModel : Foundation.ObservableObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var values: [Swift.String]? {
+    get
+  }
+  #endif
+  public var enumDefinitionValue: [CreateCustomerSDK.EnumDefinitionValueViewModel] {
+    get
+  }
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class EnumDefinitionValueViewModel : Foundation.ObservableObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var name: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var value: Swift.String? {
+    get
+  }
+  #endif
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class CustomerApprovedInfoValidationCheckViewModel {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var cif: Swift.String? {
+    get
+  }
+  #endif
+  public var customerAccountCreatingStatus: Swift.String {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class CustomerApprovedInfoViewModel {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class FPCreateCustomerViewModel : Foundation.ObservableObject {
+  public static var shared: CreateCustomerSDK.FPCreateCustomerViewModel
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func createCustomerPreStartParameters(additionalInfoDto: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, processEnum: CreateCustomerSDK.FPDigitalBankingProcessEnum, completion: @escaping (Swift.Result<CreateCustomerSDK.CreateCustomerPreStartParametersViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func newCustomerMobileSignUp(mobileNo: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.NewCustomerMobileSignUpViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func newCustomerMobileVerify(code: Swift.String, deviceId: Swift.String, deviceInfo: Swift.String, mobileNo: Swift.String, platform: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.NewCustomerMobileVerifyViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func startCreateCustomerProcessStart(additionalInfoDto: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, processEnum: CreateCustomerSDK.FPDigitalBankingProcessEnum, requestBody: CreateCustomerSDK.FPStartCreateCustomerProcessStartrRequestBodyParams, completion: @escaping (Swift.Result<CreateCustomerSDK.StartCreateCustomerProcessViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func customerApprovedInfoSave(additionalInfo: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, customerNumber: Swift.String, depositNumber: Swift.String, processType: CreateCustomerSDK.FPDigitalBankingProcessEnum, referenceNumber: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.CustomerApprovedInfoViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func getBasicInfo(additionalInfoDto: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, processEnum: CreateCustomerSDK.FPDigitalBankingProcessEnum, completion: @escaping (Swift.Result<CreateCustomerSDK.GetBasicInfoViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func performTask(additionalInfoDto: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, token: Swift.String, requestBody: CreateCustomerSDK.FPStartCreateCustomerProcessStartrRequestBodyParams, zoomIdExtraDataRequest: CreateCustomerSDK.PerformTaskZoomIdExtraData, completion: @escaping (Swift.Result<CreateCustomerSDK.PerformTaskViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func startOpenDepositProcess(additionalInfoDto: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, processEnum: CreateCustomerSDK.FPDigitalBankingProcessEnum, completion: @escaping (Swift.Result<CreateCustomerSDK.StartOpenDepositProcessViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func customerApprovedInfoValidationCheck(nationalCode: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.CustomerApprovedInfoValidationCheckViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func guideApiCall(completion: @escaping (Swift.Result<CreateCustomerSDK.GuideViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func activeOpenAcount(completion: @escaping (Swift.Result<CreateCustomerSDK.ActiveOpenAcountViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func getCities(stateId: Swift.Int, completion: @escaping (Swift.Result<[CreateCustomerSDK.GetCitiesViewModel], any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func getStates(completion: @escaping (Swift.Result<[CreateCustomerSDK.GetStatesViewModel], any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func checkPayment(completion: @escaping (Swift.Result<CreateCustomerSDK.CheckPaymentViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func getUserAddresses(additionalInfoDto: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, cif: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.GetUserAddressesViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func getPostalCode(postalCode: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.GetPostalCodeViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func cardCommission(address: Swift.String, amount: Swift.Int64, cardPan: Swift.String, cif: Swift.String, cvv2: Swift.String, depositId: Swift.String, description: Swift.String, expDate: Swift.String, pin: Swift.String, postalCode: Swift.String, requestSeq: Swift.Int, additionalInfoDto: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, completion: @escaping (Swift.Result<CreateCustomerSDK.CardCommissionViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func commissionOTP(amount: Swift.String, cardUniqueId: Swift.String, transactionType: Swift.String, billType: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.CommissionOTPViewModel, any Swift.Error>) -> Swift.Void)
+  #endif
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class GetBasicInfoViewModel {
@@ -427,71 +432,256 @@ public enum FPDigitalBankingProcessEnum : Swift.String, Swift.Codable {
   }
   @objc deinit
 }
+@_hasMissingDesignatedInitializers public class GetCitiesViewModel {
+  public var id: Swift.Int {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public var stateId: Swift.Int {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class GetPostalCodeViewModel {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var address: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var city: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var state: Swift.String? {
+    get
+  }
+  #endif
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class GetStatesViewModel {
+  public var id: Swift.Int {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class GetUserAddressesViewModel {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var addressType: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var email: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var faxNumber: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var phoneNumber: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var postalAddress: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var postalCode: Swift.String? {
+    get
+  }
+  #endif
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class GuideViewModel {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var body: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var uniqueId: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var url: Swift.String? {
+    get
+  }
+  #endif
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class NewCustomerMobileSignUpViewModel {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class NewCustomerMobileVerifyViewModel {
+  public var token: Swift.String {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class PerformTaskViewModel {
+  public var nextTaskGroupedParameters: [CreateCustomerSDK.FPDigitalBankingFormGroupViewModel] {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var processBean: CreateCustomerSDK.ProcessViewModel? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var nextTaskId: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var nextTaskTitle: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var exceptionBean: CreateCustomerSDK.ExceptionBeanViewModel? {
+    get
+  }
+  #endif
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers public class StartCreateCustomerProcessViewModel {
   public var nextTaskGroupParameters: [CreateCustomerSDK.FPDigitalBankingFormGroupViewModel] {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var process: CreateCustomerSDK.ProcessViewModel? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var nextTaskId: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var nextTaskTitle: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var exceptionBean: CreateCustomerSDK.ExceptionBeanViewModel? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var zoomIdLicense: CreateCustomerSDK.ZoomIdLicenseViewModel? {
     get
   }
+  #endif
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class ProcessViewModel : Foundation.ObservableObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var id: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var refrenceNumber: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var title: Swift.String? {
     get
   }
+  #endif
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class ExceptionBeanViewModel : Foundation.ObservableObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var message: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var exceptionMessage: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var exeptionType: CreateCustomerSDK.FPDigitalBankingExceptionType? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var errorMessage: Swift.String? {
     get
   }
+  #endif
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class ZoomIdLicenseViewModel : Foundation.ObservableObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var license: Swift.String? {
     get
   }
+  #endif
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
   @objc deinit
 }
+@_hasMissingDesignatedInitializers public class StartOpenDepositProcessViewModel {
+  public var nextTaskGroupParameters: [CreateCustomerSDK.FPDigitalBankingFormGroupViewModel] {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var process: CreateCustomerSDK.ProcessViewModel? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var nextTaskId: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var nextTaskTitle: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var exceptionBean: CreateCustomerSDK.ExceptionBeanViewModel? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var zoomIdLicense: CreateCustomerSDK.ZoomIdLicenseViewModel? {
+    get
+  }
+  #endif
+  @objc deinit
+}
+extension CreateCustomerSDK.FPUserKeychainDefaultKeys : Swift.Equatable {}
+extension CreateCustomerSDK.FPUserKeychainDefaultKeys : Swift.Hashable {}
+extension CreateCustomerSDK.FPUserKeychainDefaultKeys : Swift.RawRepresentable {}
 extension CreateCustomerSDK.KeychainSwiftAccessOptions : Swift.Equatable {}
 extension CreateCustomerSDK.KeychainSwiftAccessOptions : Swift.Hashable {}
-extension CreateCustomerSDK.FPDigitalBankingExceptionType : Swift.Equatable {}
-extension CreateCustomerSDK.FPDigitalBankingExceptionType : Swift.Hashable {}
-extension CreateCustomerSDK.FPDigitalBankingExceptionType : Swift.RawRepresentable {}
-extension CreateCustomerSDK.FPDigitalBankingFormGroupParameterType : Swift.Equatable {}
-extension CreateCustomerSDK.FPDigitalBankingFormGroupParameterType : Swift.Hashable {}
-extension CreateCustomerSDK.FPDigitalBankingFormGroupParameterType : Swift.RawRepresentable {}
 extension CreateCustomerSDK.FPDigitalBankingProcessEnum : Swift.Equatable {}
 extension CreateCustomerSDK.FPDigitalBankingProcessEnum : Swift.Hashable {}
 extension CreateCustomerSDK.FPDigitalBankingProcessEnum : Swift.RawRepresentable {}
+extension CreateCustomerSDK.FPDigitalBankingFormGroupParameterType : Swift.Equatable {}
+extension CreateCustomerSDK.FPDigitalBankingFormGroupParameterType : Swift.Hashable {}
+extension CreateCustomerSDK.FPDigitalBankingFormGroupParameterType : Swift.RawRepresentable {}
+extension CreateCustomerSDK.FPDigitalBankingExceptionType : Swift.Equatable {}
+extension CreateCustomerSDK.FPDigitalBankingExceptionType : Swift.Hashable {}
+extension CreateCustomerSDK.FPDigitalBankingExceptionType : Swift.RawRepresentable {}
