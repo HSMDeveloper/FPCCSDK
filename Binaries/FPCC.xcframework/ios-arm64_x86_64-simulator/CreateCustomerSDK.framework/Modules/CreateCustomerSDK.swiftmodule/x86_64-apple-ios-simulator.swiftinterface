@@ -10,6 +10,9 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+extension UIKit.UIDevice {
+  @_Concurrency.MainActor @preconcurrency public func displayName(includeType: Swift.Bool = true) -> Swift.String
+}
 public enum FPUserKeychainDefaultKeys : Swift.String {
   case token
   case mobileNumber
@@ -25,6 +28,7 @@ public enum FPUserKeychainDefaultKeys : Swift.String {
   case certificate
   case customerNumber
   case bankToken
+  case tempOTP
   #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
   #endif
@@ -34,6 +38,11 @@ public enum FPUserKeychainDefaultKeys : Swift.String {
   }
 }
 @objc @_inheritsConvenienceInitializers public class KeychainHelper : ObjectiveC.NSObject {
+  public static func setValue(_ value: Swift.String, key: CreateCustomerSDK.FPUserKeychainDefaultKeys)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func getValue(key: CreateCustomerSDK.FPUserKeychainDefaultKeys) -> Swift.String?
+  #endif
+  public static func deleteValue(key: CreateCustomerSDK.FPUserKeychainDefaultKeys)
   @objc override dynamic public init()
   @objc deinit
 }
@@ -361,7 +370,7 @@ public enum NetworkError : Swift.Error {
   final public func newCustomerMobileSignUp(mobileNo: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.NewCustomerMobileSignUpViewModel, any Swift.Error>) -> Swift.Void)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  final public func newCustomerMobileVerify(code: Swift.String, deviceId: Swift.String, deviceInfo: Swift.String, mobileNo: Swift.String, platform: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.NewCustomerMobileVerifyViewModel, any Swift.Error>) -> Swift.Void)
+  final public func newCustomerMobileVerify(code: Swift.String, mobileNo: Swift.String, completion: @escaping (Swift.Result<CreateCustomerSDK.NewCustomerMobileVerifyViewModel, any Swift.Error>) -> Swift.Void)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
   final public func startCreateCustomerProcessStart(additionalInfoDto: CreateCustomerSDK.FPDigitalBankingAdditionalInfo, processEnum: CreateCustomerSDK.FPDigitalBankingProcessEnum, requestBody: CreateCustomerSDK.FPStartCreateCustomerProcessStartrRequestBodyParams, completion: @escaping (Swift.Result<CreateCustomerSDK.StartCreateCustomerProcessViewModel, any Swift.Error>) -> Swift.Void)
